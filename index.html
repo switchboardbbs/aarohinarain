@@ -3,22 +3,27 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {
-        'packages':['geochart'],
+        'packages': ['geochart'],
+        'mapsApiKey': 'AIzaSyAbFuVPsM9sH4O_YC5CMGzcAkQycwnd-SM'  // Replace with your Google Maps API key
       });
       google.charts.setOnLoadCallback(drawRegionsMap);
 
       function drawRegionsMap() {
         var data = google.visualization.arrayToDataTable([
-          ['Country', 'Popularity'],
-          ['Germany', 200],
-          ['United States', 300],
-          ['Brazil', 400],
-          ['Canada', 500],
-          ['France', 600],
-          ['RU', 700]
+          ['Prefecture', 'Popularity'],
+          ['Tokyo', 1000],
+          ['Kanagawa', 800],
+          ['Saitama', 600],
+          ['Chiba', 400],
+          ['Yamanashi', 200],
+          ['Ibaraki', 100]
         ]);
 
-        var options = {};
+        var options = {
+          region: 'JP',  // Focus on Japan
+          displayMode: 'regions',
+          resolution: 'provinces'
+        };
 
         var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
 
